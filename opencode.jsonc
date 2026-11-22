@@ -1,5 +1,40 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "permissions": [
+    // python / general
+    { "action": "shell", "resource": "pip *", "effect": "ask" },
+    { "action": "shell", "resource": "pip3 *", "effect": "ask" },
+    { "action": "shell", "resource": "pipx *", "effect": "ask" },
+    { "action": "shell", "resource": "uv pip install *", "effect": "ask" },
+    { "action": "shell", "resource": "uvx *", "effect": "ask" },
+    { "action": "shell", "resource": "conda install *", "effect": "ask" },
+
+    // node / JS
+    { "action": "shell", "resource": "npm install *", "effect": "ask" },
+    { "action": "shell", "resource": "npm ci *", "effect": "ask" },
+    { "action": "shell", "resource": "npm add *", "effect": "ask" },
+    { "action": "shell", "resource": "pnpm install *", "effect": "ask" },
+    { "action": "shell", "resource": "pnpm add *", "effect": "ask" },
+    { "action": "shell", "resource": "yarn install *", "effect": "ask" },
+    { "action": "shell", "resource": "yarn add *", "effect": "ask" },
+    { "action": "shell", "resource": "bun install *", "effect": "ask" },
+    { "action": "shell", "resource": "npx *", "effect": "ask" },
+
+    // system / language toolchains
+    { "action": "shell", "resource": "brew install *", "effect": "ask" },
+    { "action": "shell", "resource": "brew upgrade *", "effect": "ask" },
+    { "action": "shell", "resource": "brew uninstall *", "effect": "ask" },
+    { "action": "shell", "resource": "go install *", "effect": "ask" },
+    { "action": "shell", "resource": "cargo install *", "effect": "ask" },
+    { "action": "shell", "resource": "gem install *", "effect": "ask" },
+    { "action": "shell", "resource": "apt-get *", "effect": "ask" },
+    { "action": "shell", "resource": "apt *", "effect": "ask" },
+  ],
+  "agents": {
+    "explore": {
+      "model": "ollama-cloud/glm-5.3-flash"
+    }
+  },
   "provider": {
       "local-ollama": {
           "npm": "@ai-sdk/openai-compatible",
@@ -17,11 +52,11 @@
             "qwen3.6:27b": {
                 "name": "qwen3.6:27b"
             },
-            "qwen-coder": {
+            "qwen3-coder:30b": {
                     "name": "qwen3-coder:30b"
                 },
-            "medgemma4:4b": {
-                "name": "medgemma4:4b"
+            "medgemma:4b": {
+                "name": "medgemma:4b"
             },
             "gemma4:31b": {
                 "name": "gemma4:31b"
@@ -31,6 +66,18 @@
             },
             "deepseek-r1:32b": {
                 "name": "deepseek-r1:32b"
+            },
+            "nemotron-3-nano:4b": {
+                "name": "nemotron-3-nano:4b"
+            },
+            "kimi-k3:cloud": {
+                "name": "kimi-k3:cloud"
+            },
+            "gemma4:cloud": {
+                "name": "gemma4:cloud"
+            },
+            "glm-5.2:cloud": {
+                "name": "glm-5.2:cloud"
             }
         }
       }
